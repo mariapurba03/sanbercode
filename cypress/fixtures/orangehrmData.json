@@ -2,8 +2,8 @@
   "baseUrl": "https://opensource-demo.orangehrmlive.com",
   "validUsername": "Admin",
   "validPassword": "admin123",
-  "invalidUsername": "InvalidUser",
-  "invalidPassword": "invalidPass123",
+  "invalidUsername": "AdminSalah",
+  "invalidPassword": "salah123",
   "employeeKeywordExisting": "a",
   "employeeKeywordNonExisting": "zzzz-not-exist"
 }

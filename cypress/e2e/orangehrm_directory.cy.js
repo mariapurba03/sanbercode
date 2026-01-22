@@ -7,29 +7,26 @@ describe('OrangeHRM - Directory', () => {
   const data = {
     validUsername: 'Admin',
     validPassword: 'admin123',
-
-    // Job Title harus benar-benar ADA di dropdown Directory
+    //must exist in the Directory "Job Title" dropdown (demo data can be limited)
     jobTitle: 'HR Manager',
-
     location: 'New York Sales Office',
     invalidName: 'zzzzzzzzzzzzzz'
   }
 
   beforeEach(() => {
-    // buka halaman login
+    //start from the login page for a clean session each time
     loginPage.visit()
-
-    // pastikan halaman login benar-benar siap (SPA ready)
+    //quick sanity check that the login UI is ready before typing
     cy.get('.orangehrm-login-container', { timeout: 15000 })
       .should('be.visible')
 
-    // proses login
+    //log in
     loginPage.inputUsername(data.validUsername)
     loginPage.inputPassword(data.validPassword)
     loginPage.clickLogin()
     loginPage.assertLoginSuccess()
 
-    // buka halaman Directory
+    //navigate directly to Directory
     directoryPage.visit()
     directoryPage.assertOnDirectoryPage()
   })

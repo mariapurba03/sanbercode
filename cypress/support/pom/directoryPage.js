@@ -78,11 +78,12 @@ class DirectoryPage {
   clickSearch() {
     this.searchButton().click()
   }
-
+  
   clickReset() {
+  //make sure the button is visible before clicking (prevents flaky clicks)
   this.resetButton().should('be.visible').click()
 }
-//new
+//helpers target fields by label to avoid relying on index based selectors
 fieldByLabel(label) {
   return cy.contains('label', label)
     .parents('.oxd-input-group')
@@ -96,19 +97,16 @@ selectedTextByLabel(label) {
 }
 
  assertFiltersCleared() {
-  // cek Job Title kembali default
+  //after reset, both dropdowns should return to "-- Select --"
   this.selectedTextByLabel('Job Title')
     .should('contain.text', '-- Select --')
 
-  // cek Location kembali default
+  // check location back to default
   this.selectedTextByLabel('Location')
     .should('contain.text', '-- Select --')
 
-  // hasil list kembali tampil normal
+  //and the list should be shown again
   this.assertHasResults()
+  }
 }
-
-
-}
-
 export default new DirectoryPage()

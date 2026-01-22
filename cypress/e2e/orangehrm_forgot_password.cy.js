@@ -3,6 +3,7 @@ import data from "../fixtures/orangehrmData.json";
 
 describe('OrangeHRM - Forgot Password', () => {
   beforeEach(() => {
+    //always start from login, then navigate to the forgot password page
     forgotPasswordPage.visitLogin();
     forgotPasswordPage.openForgotPasswordPage();
   });
@@ -17,6 +18,7 @@ describe('OrangeHRM - Forgot Password', () => {
     forgotPasswordPage.assertBackToLogin();
   });
 
+  //the success flow depends on email and backend behavior, which is outside this UI test scope
   // it('TC-FP-003 - Reset password berhasil dengan username valid', () => {
   //   forgotPasswordPage.inputUsername(data.validUsername);
   //   forgotPasswordPage.clickReset();
