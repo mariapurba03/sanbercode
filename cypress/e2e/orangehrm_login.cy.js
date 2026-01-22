@@ -3,25 +3,25 @@ import data from "../fixtures/orangehrmData.json";
 
 Cypress.on('uncaught:exception', (err) => {
   if (err.message.includes("Cannot read properties of undefined (reading 'response')")) {
-    return false; // prevent Cypress from failing the test
+    return false; //prevent cypress from failing the test
   }
 });
 
 describe('OrangeHRM - Login', () => {
-//Open login page before each test
+//open login page before each test
   beforeEach(() => {
     loginPage.visit();
   });
 
   it('TC-LOGIN-001 – User can log in successfully with valid credentials', () => {
-     // Intercept dashboard request to make sure login completes properly
+     //intercept dashboard request to make sure login completes properly
     cy.intercept('GET', '**/dashboard/**').as('dashboard');
 
     loginPage.inputUsername(data.validUsername);
     loginPage.inputPassword(data.validPassword);
     loginPage.clickLogin();
 
-    // Wait until dashboard is fully loaded
+    //wait until dashboard is fully loaded
     cy.wait('@dashboard', { timeout: 20000 });
     loginPage.assertLoginSuccess();
   });
