@@ -5,7 +5,7 @@ describe('OrangeHRM - Directory', () => {
   const data = {
     validUsername: 'Admin',
     validPassword: 'admin123',
-    //must exist in the Directory "Job Title" dropdown (demo data can be limited)
+    //must exist in the directory "Job Title" dropdown (demo data can be limited)
     jobTitle: 'HR Manager',
     location: 'New York Sales Office',
     invalidName: 'zzzzzzzzzzzzzz'
@@ -24,7 +24,7 @@ describe('OrangeHRM - Directory', () => {
     loginPage.clickLogin()
     loginPage.assertLoginSuccess()
 
-    //navigate directly to Directory
+    //navigate directly to directory
     directoryPage.visit()
     directoryPage.assertOnDirectoryPage()
   })
