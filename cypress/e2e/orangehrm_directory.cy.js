@@ -1,5 +1,3 @@
-// cypress/e2e/orangehrm_directory.cy.js
-
 import loginPage from '../support/pom/loginPage'
 import directoryPage from '../support/pom/directoryPage'
 
